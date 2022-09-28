@@ -57,4 +57,21 @@ public class Suitcase {
         }
 
     }
+
+    public Item heaviestItem() {
+        if (items.isEmpty()) {
+            return null;
+        }
+
+        Item heaviestItem = items.get(0);
+
+        for (Item item : items) {
+            if (item.getWeight() > heaviestItem.getWeight()) {
+                heaviestItem = item;
+            }
+
+        }
+
+        return heaviestItem;
+    }
 }
