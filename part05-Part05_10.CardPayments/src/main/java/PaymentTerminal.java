@@ -24,6 +24,21 @@ public class PaymentTerminal {
         return payment;
     }
 
+    public boolean eatAffordably(PaymentCard card) {
+        // an affordable meal costs 2.50 euros
+        double affordableMealCost = 2.50;
+        // increase the amount of cash by the price of an affordable mean and return the change
+        // if the payment parameter is not large enough, no meal is sold and the method should return the whole payment
+
+        if (card.balance() >= affordableMealCost) {
+            card.takeMoney(affordableMealCost);
+            this.affordableMeals++;
+            return true;
+        }
+        return false;
+
+    }
+
     public double eatHeartily(double payment) {
         // a hearty meal costs 4.30 euros
         double heartyMealCost = 4.30;
@@ -36,6 +51,20 @@ public class PaymentTerminal {
             return payment - heartyMealCost;
         }
         return payment;
+    }
+
+    public boolean eatHeartily(PaymentCard card) {
+        // a hearty meal costs 4.30 euros
+        double heartyMealCost = 4.30;
+
+        // if the payment card has enough money, the balance of the card is decreased by the price, and the method returns true
+        // otherwise false is returned
+        if (card.balance() >= heartyMealCost) {
+            card.takeMoney(heartyMealCost);
+            this.heartyMeals++;
+            return true;
+        }
+        return false;
     }
 
     @Override
