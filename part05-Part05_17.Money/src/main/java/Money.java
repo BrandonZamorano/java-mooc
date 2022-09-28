@@ -22,6 +22,11 @@ public class Money {
     public int cents() {
         return this.cents;
     }
+    
+    public Money plus(Money addition) {
+        Money newMoney = new Money(this.euros + addition.euros, this.cents + addition.cents);
+        return newMoney;
+    }
 
     public String toString() {
         String zero = "";
