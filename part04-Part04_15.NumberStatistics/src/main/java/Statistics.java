@@ -23,6 +23,10 @@ public class Statistics {
     }
 
     public double average() {
+        if (count == 0) {
+            return 0;
+        }
+        
         return 1.0 * this.sum / this.count;
     }
 }
