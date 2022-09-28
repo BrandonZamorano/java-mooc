@@ -17,7 +17,7 @@ public class Room {
     public Room() {
         this.persons = new ArrayList<>();
     }
-    
+
     public void add(Person person) {
         persons.add(person);
     }
@@ -28,5 +28,21 @@ public class Room {
 
     public ArrayList<Person> getPersons() {
         return persons;
+    }
+
+    public Person shortest() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        Person shortestPerson = persons.get(0);
+
+        for (Person person : persons) {
+            if (person.getHeight() < shortestPerson.getHeight()) {
+                shortestPerson = person;
+            }
+        }
+
+        return shortestPerson;
     }
 }
