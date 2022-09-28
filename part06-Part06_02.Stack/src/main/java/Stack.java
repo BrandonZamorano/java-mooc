@@ -30,4 +30,8 @@ public class Stack {
         return list;
     }
     
+    public String take() {
+        return list.remove(list.size() - 1);
+    }
+    
 }
