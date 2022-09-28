@@ -28,24 +28,33 @@ public class TextUI {
 
             if (command.equals("end")) {
                 break;
-            }
+            } 
             
-            if (command.equals("add")) {
-                System.out.print("Word: ");
-                String word = scanner.nextLine();
-                
-                System.out.print("Trnaslation: ");
-                String translation = scanner.nextLine();
-                
-                dictionary.add(word, translation);
-                
-                continue;
-            }
-            
-            System.out.println("Unkown command");
-
+            handleCommand(command);
         }
+
         System.out.println("Bye bye!");
+    }
+
+    private void handleCommand(String command) {
+        if (command.equals("add")) {
+            System.out.print("Word: ");
+            String word = scanner.nextLine();
+
+            System.out.print("Trnaslation: ");
+            String translation = scanner.nextLine();
+
+            dictionary.add(word, translation);
+        } else if (command.equals("search")) {
+            System.out.print("To be translated: ");
+            String word = scanner.nextLine();
+            String translation = dictionary.translate(word);
+
+            System.out.println("Translation: " + translation);
+
+        } else {
+            System.out.println("Unkown command");
+        }
     }
 
 }
