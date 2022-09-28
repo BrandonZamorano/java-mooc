@@ -10,12 +10,17 @@ public class Menu {
     }
 
     // implement the required methods here
-    
     public void addMeal(String meal) {
         if (meals.contains(meal)) {
             return;
         }
-        
+
         meals.add(meal);
+    }
+
+    public void printMeals() {
+        for (String meal : meals) {
+            System.out.println(meal);
+        }
     }
 }
