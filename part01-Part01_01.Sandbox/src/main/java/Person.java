@@ -42,4 +42,8 @@ public class Person {
     public String getName() {
         return this.name;
     }
+    
+    public String toString() {
+        return this.name + ", age" + this.age + " year";
+    }
 }
