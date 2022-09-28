@@ -28,8 +28,8 @@ public class TextUI {
 
             if (command.equals("end")) {
                 break;
-            } 
-            
+            }
+
             handleCommand(command);
         }
 
@@ -49,6 +49,10 @@ public class TextUI {
             System.out.print("To be translated: ");
             String word = scanner.nextLine();
             String translation = dictionary.translate(word);
+            if (translation == null) {
+                System.out.println("Word " + word + " was not found");
+                return;
+            }
 
             System.out.println("Translation: " + translation);
 
