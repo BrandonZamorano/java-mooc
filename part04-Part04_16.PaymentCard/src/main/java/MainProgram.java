@@ -6,16 +6,9 @@ public class MainProgram {
         
         // Here you can write code to test that PaymentCard works as intended
                 PaymentCard card = new PaymentCard(10);
-        System.out.println(card);
-
-        card.addMoney(15);
-        System.out.println(card);
-
-        card.addMoney(10);
-        System.out.println(card);
-
-        card.addMoney(200);
-        System.out.println(card);
+        System.out.println("Paul: " + card);
+        card.addMoney(-15);
+        System.out.println("Paul: " + card);
 
         // be sure to erase the extra code for the last part of the exercise!
 
