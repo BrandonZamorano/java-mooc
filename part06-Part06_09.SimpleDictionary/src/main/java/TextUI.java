@@ -30,6 +30,18 @@ public class TextUI {
                 break;
             }
             
+            if (command.equals("add")) {
+                System.out.print("Word: ");
+                String word = scanner.nextLine();
+                
+                System.out.print("Trnaslation: ");
+                String translation = scanner.nextLine();
+                
+                dictionary.add(word, translation);
+                
+                continue;
+            }
+            
             System.out.println("Unkown command");
 
         }
