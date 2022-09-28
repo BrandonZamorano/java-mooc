@@ -40,6 +40,14 @@ public class Suitcase {
     }
 
     public String toString() {
+        if (items.isEmpty()) {
+            return "no items (0 kg)";
+        }
+
+        if (items.size() == 1) {
+            return "1 item (" + getWeight() + "kg)";
+        }
+
         return items.size() + " items (" + getWeight() + "kg)";
     }
 
