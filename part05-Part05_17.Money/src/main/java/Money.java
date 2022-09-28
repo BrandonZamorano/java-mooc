@@ -33,6 +33,16 @@ public class Money {
 
     }
 
+    public Money minus(Money decreaser) {
+        int difference = (this.cents + this.euros * 100) - (decreaser.cents + decreaser.euros * 100);
+
+        if (difference < 0) {
+            return new Money(0, 0);
+        }
+
+        return new Money(0, difference);
+    }
+
     public String toString() {
         String zero = "";
         if (this.cents < 10) {
