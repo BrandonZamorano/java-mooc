@@ -22,10 +22,15 @@ public class Money {
     public int cents() {
         return this.cents;
     }
-    
+
     public Money plus(Money addition) {
         Money newMoney = new Money(this.euros + addition.euros, this.cents + addition.cents);
         return newMoney;
+    }
+
+    public boolean lessThan(Money decreaser) {
+        return this.cents + this.euros * 100 < decreaser.cents + decreaser.euros * 100;
+
     }
 
     public String toString() {
