@@ -3,15 +3,22 @@ public class Main {
 
     public static void main(String[] args) {
         // You can use the main to test your classes!
-        
-        Item book = new Item("The lord of the rings", 2);
+        Item book = new Item("Lord of the rings", 2);
         Item phone = new Item("Nokia 3210", 1);
+        Item brick = new Item("brick", 4);
 
-        System.out.println("The book's name: " + book.getName());
-        System.out.println("The book's weight: " + book.getWeight());
+        Suitcase suitcase = new Suitcase(5);
+        System.out.println(suitcase);
 
-        System.out.println("Book: " + book);
-        System.out.println("Phone: " + phone);
+        suitcase.addItem(book);
+        System.out.println(suitcase);
+
+        suitcase.addItem(phone);
+        System.out.println(suitcase);
+
+        suitcase.addItem(brick);
+        System.out.println(suitcase);
+
     }
 
 }
