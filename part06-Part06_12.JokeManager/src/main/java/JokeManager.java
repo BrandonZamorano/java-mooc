@@ -19,6 +19,9 @@ public class JokeManager {
     }
 
     public void addJoke(String joke) {
+        if (jokes.contains(joke)) {
+            return;
+        }
         jokes.add(joke);
     }
 
