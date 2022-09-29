@@ -43,4 +43,18 @@ public class GradeRegister {
 
         return grade;
     }
+    
+    public double averageOfGrades() {
+        if (grades.isEmpty()) {
+            return -1;
+        }
+        
+        int sum = 0;
+        
+        for (int grade : grades) {
+            sum += grade;
+        }
+        
+        return 1.0 * sum / grades.size();
+    }
 }
