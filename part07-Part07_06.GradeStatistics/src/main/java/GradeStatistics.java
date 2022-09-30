@@ -46,8 +46,12 @@ public class GradeStatistics {
     }
 
     public double getPassingGradePointAverage() {
+        if (passingGrades.isEmpty()) {
+            return -1;
+        }
+
         int sum = 0;
-        
+
         for (Grade grade : passingGrades) {
             sum += grade.getPointScore();
         }
@@ -57,5 +61,23 @@ public class GradeStatistics {
 
     private ArrayList<Grade> getPassingGrades() {
         return passingGrades;
+    }
+
+    public double getPassPercentage() {
+        if (passingGrades.isEmpty()) {
+            return 0;
+        }
+        
+        return 100.0 * passingGrades.size() / grades.size();
+    }
+
+    public String toString() {
+        String output = "";
+        output += "Point average (all): " + getPointAverage();
+        double passingGPA = getPassingGradePointAverage();
+        output += "\nPoint average (passing): " + (passingGPA == -1 ? "-" : passingGPA);
+        output += "\nPass percentage: " + getPassPercentage();
+        
+        return output;
     }
 }
