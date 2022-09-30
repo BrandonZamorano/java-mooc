@@ -64,6 +64,20 @@ public class LiquidContainers {
 
                 secondContainer = newAmount;
 
+            } else if (command.equals("remove")) {
+
+                if (amount < 0) {
+                    continue;
+                }
+
+                int amountToRemove = amount;
+
+                if (secondContainer - amountToRemove < 0) {
+                    amountToRemove = secondContainer;
+                }
+
+                secondContainer -= amountToRemove;
+
             }
 
         }
