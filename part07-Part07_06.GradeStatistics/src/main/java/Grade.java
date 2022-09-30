@@ -14,6 +14,7 @@ public class Grade {
     
     public Grade(int pointScore) {
         this.pointScore = pointScore;
+        this.grade = getGradeFromPoint(pointScore);
     }
 
     public int getPointScore() {
@@ -21,6 +22,26 @@ public class Grade {
     }
 
     public int getGrade() {
+        return grade;
+    }
+    
+    private int getGradeFromPoint(int pointScore) {
+        int grade = 0;
+        
+        if (pointScore < 50) {
+            grade = 0;
+        } else if (pointScore < 60) {
+            grade = 1;
+        } else if (pointScore < 70) {
+            grade = 2;
+        } else if (pointScore < 80) {
+            grade = 3;
+        } else if (pointScore < 90) {
+            grade = 4;
+        } else if (pointScore >= 90) {
+            grade = 5;
+        }
+        
         return grade;
     }
     

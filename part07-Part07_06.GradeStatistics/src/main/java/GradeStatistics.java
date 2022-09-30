@@ -70,6 +70,35 @@ public class GradeStatistics {
         
         return 100.0 * passingGrades.size() / grades.size();
     }
+    
+    public int[] getGradeDistribution() {
+        int[] gradeDistribution = new int[6];
+        
+        for (Grade grade : grades) {
+            gradeDistribution[grade.getGrade()]++;
+        }
+        
+        return gradeDistribution;
+    }
+    
+    private String getGradeDistributionString() {
+        String output = "";
+        int[] gradeDistribution = getGradeDistribution();
+        
+        for (int i = gradeDistribution.length - 1; i >= 0; i--) {
+            output+= i + ": " + getStar(gradeDistribution[i]) + "\n";
+        }
+        
+        return output;
+    }
+    
+    private String getStar(int numStars) {
+        String stars = "";
+        for (int i = 0; i < numStars; i++) {
+            stars += "*";
+        }
+        return stars;
+    }
 
     public String toString() {
         String output = "";
@@ -77,6 +106,7 @@ public class GradeStatistics {
         double passingGPA = getPassingGradePointAverage();
         output += "\nPoint average (passing): " + (passingGPA == -1 ? "-" : passingGPA);
         output += "\nPass percentage: " + getPassPercentage();
+        output += "\nGrade distribution:\n" + getGradeDistributionString();
         
         return output;
     }
