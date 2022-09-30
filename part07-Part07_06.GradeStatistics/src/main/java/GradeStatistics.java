@@ -13,16 +13,26 @@ import java.util.ArrayList;
 public class GradeStatistics {
 
     private ArrayList<Grade> grades;
+    private ArrayList<Grade> passingGrades;
 
     public GradeStatistics() {
         this.grades = new ArrayList<>();
+        this.passingGrades = new ArrayList<>();
     }
 
     public void addGradeFromPoint(int point) {
         if (point < 0 || point > 100) {
             return;
         }
-        grades.add(new Grade(point));
+
+        int MIN_PASSING_GRADE = 50;
+
+        Grade grade = new Grade(point);
+        if (point >= MIN_PASSING_GRADE) {
+            passingGrades.add(grade);
+        }
+        grades.add(grade);
+
     }
 
     public double getPointAverage() {
@@ -37,18 +47,15 @@ public class GradeStatistics {
 
     public double getPassingGradePointAverage() {
         int sum = 0;
-        int MIN_PASSING_GRADE = 50;
-        int numPassing = 0;
-
-        for (Grade grade : grades) {
-            if (grade.getPointScore() < MIN_PASSING_GRADE) {
-                continue;
-            }
-
+        
+        for (Grade grade : passingGrades) {
             sum += grade.getPointScore();
-            numPassing++;
         }
 
-        return 1.0 * sum / numPassing;
+        return 1.0 * sum / passingGrades.size();
+    }
+
+    private ArrayList<Grade> getPassingGrades() {
+        return passingGrades;
     }
 }
