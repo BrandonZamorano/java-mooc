@@ -5,15 +5,9 @@ public class MainProgram {
 
     public static void main(String[] args) {
         // write your test code here
-        int[] numbers = {3, 2, 5, 4, 8};
 
-        System.out.println(Arrays.toString(numbers));
-
-        MainProgram.swap(numbers, 1, 0);
-        System.out.println(Arrays.toString(numbers));
-
-        MainProgram.swap(numbers, 0, 3);
-        System.out.println(Arrays.toString(numbers));
+        int[] numbers = {8, 3, 7, 9, 1, 2, 4};
+        MainProgram.sort(numbers);
 
     }
 
@@ -57,6 +51,20 @@ public class MainProgram {
         int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
+    }
+
+    public static void sort(int[] array) {
+
+        System.out.println(Arrays.toString(array));
+        for (int i = 0; i < array.length; i++) {
+            // Examine the array starting from index i.
+            // Swap the following two numbers with each other:
+            // the number at index i, and the smallest number in the array starting from index 1
+            swap(array, i, indexOfSmallestFrom(array, i));
+
+            System.out.println(Arrays.toString(array));
+        }
+
     }
 
 }
