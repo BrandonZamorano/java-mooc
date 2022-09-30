@@ -22,5 +22,6 @@ public class Main {
         }
 
         System.out.println("Point average (all): " + stats.getPointAverage());
+        System.out.println("Point average (passing): " + stats.getPassingGradePointAverage());
     }
 }
