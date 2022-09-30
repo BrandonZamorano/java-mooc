@@ -1,14 +1,19 @@
 
+import java.util.Arrays;
+
 public class MainProgram {
 
     public static void main(String[] args) {
         // write your test code here
+        int[] numbers = {3, 2, 5, 4, 8};
 
-        // indices:       0  1  2  3   4
-        int[] numbers = {-1, 6, 9, 8, 12};
-        System.out.println(MainProgram.indexOfSmallestFrom(numbers, 0));
-        System.out.println(MainProgram.indexOfSmallestFrom(numbers, 1));
-        System.out.println(MainProgram.indexOfSmallestFrom(numbers, 2));
+        System.out.println(Arrays.toString(numbers));
+
+        MainProgram.swap(numbers, 1, 0);
+        System.out.println(Arrays.toString(numbers));
+
+        MainProgram.swap(numbers, 0, 3);
+        System.out.println(Arrays.toString(numbers));
 
     }
 
@@ -40,12 +45,18 @@ public class MainProgram {
 
     public static int indexOfSmallestFrom(int[] array, int startIndex) {
         int[] subArray = new int[array.length - startIndex];
-        
+
         for (int i = 0; i < subArray.length; i++) {
             subArray[i] = array[startIndex + i];
         }
 
         return indexOfSmallest(subArray) + startIndex;
+    }
+
+    public static void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
     }
 
 }
