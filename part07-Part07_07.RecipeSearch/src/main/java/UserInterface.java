@@ -61,7 +61,10 @@ public class UserInterface {
         if (command.equals("list")) {
             list();
         } else if (command.equals("find name")) {
-            findRecipeByName();
+            findRecipesByName();
+        } else if (command.equals("find cooking time")) {
+            findRecipesByMaxCookingTime();
+
         }
     }
 
@@ -72,7 +75,7 @@ public class UserInterface {
         }
     }
 
-    private void findRecipeByName() {
+    private void findRecipesByName() {
         System.out.print("Searched word: ");
         String searchQuery = scanner.nextLine();
 
@@ -80,6 +83,19 @@ public class UserInterface {
         System.out.println("Recipes:");
         ArrayList<Recipe> foundRecipes = recipeList.findRecipesByName(searchQuery);
 
+        for (Recipe recipe : foundRecipes) {
+            System.out.println(recipe);
+        }
+    }
+
+    private void findRecipesByMaxCookingTime() {
+        System.out.print("Max cooking time: ");
+        int maxCookingTime = Integer.valueOf(scanner.nextLine());
+        
+        System.out.println("");
+        ArrayList<Recipe> foundRecipes = recipeList.findRecipesByMaxCookingTime(maxCookingTime);
+        System.out.println("Recipes:");
+        
         for (Recipe recipe : foundRecipes) {
             System.out.println(recipe);
         }
