@@ -37,6 +37,19 @@ public class LiquidContainers {
                 if (first > MAX_AMOUNT) {
                     first = MAX_AMOUNT;
                 }
+            } else if (command.equals("move")) {
+                //move the amount of liquid from first to second
+                //if amount is more than first, move all of remainng first
+                if (amount > first) {
+                    amount = first;
+                }
+                first -= amount;
+                second += amount;
+                
+                // second can't hold more than max amount
+                if (second > MAX_AMOUNT) {
+                    second = MAX_AMOUNT;
+                }
             }
         }
     }
