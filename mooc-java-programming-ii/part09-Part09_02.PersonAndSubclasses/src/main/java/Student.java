@@ -24,4 +24,8 @@ public class Student extends Person {
     public int credits() {
         return studyCredits;
     }
+    
+    public String toString() {
+        return super.toString() + "\n  Study credits " + studyCredits; 
+    }
 }
