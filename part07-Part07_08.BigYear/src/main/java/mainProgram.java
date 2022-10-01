@@ -8,7 +8,12 @@ public class mainProgram {
         // if and when you create other classes, pass the scanner to them
         // as a parameter
 
-        Scanner scan = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        BirdDatabase database = new BirdDatabase();
+        
+        UserInterface ui = new UserInterface(scanner, database);
+        
+        ui.start();
 
     }
 
