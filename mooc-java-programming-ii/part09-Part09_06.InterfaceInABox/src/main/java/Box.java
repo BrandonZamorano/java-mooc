@@ -12,34 +12,37 @@ import java.util.ArrayList;
  */
 public class Box implements Packable {
 
-    private double weight;
     private ArrayList<Packable> items;
     private double maxCapacity;
 
     public Box(double maxCapacity) {
         this.items = new ArrayList();
         this.maxCapacity = maxCapacity;
-        this.weight = 0;
     }
 
     @Override
     public double weight() {
-        return this.weight;
+        double totalWeight = 0;
+
+        for (Packable packable : items) {
+            totalWeight += packable.weight();
+        }
+
+        return totalWeight;
     }
 
     public void add(Packable packable) {
-        double newWeight = this.weight + packable.weight();
+        double newWeight = this.weight() + packable.weight();
 
         if (newWeight > this.maxCapacity) {
             return;
         }
 
         this.items.add(packable);
-        this.weight = newWeight;
     }
 
     public String toString() {
-        return "Box: " + items.size() + " items, total weight " + this.weight + " kg";
+        return "Box: " + items.size() + " items, total weight " + this.weight() + " kg";
     }
 
 }
