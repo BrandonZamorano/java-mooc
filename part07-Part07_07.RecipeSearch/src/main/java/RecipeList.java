@@ -38,6 +38,18 @@ public class RecipeList {
         return matchedRecipes;
     }
 
+    public ArrayList<Recipe> findRecipesByIngredient(String ingredient) {
+        ArrayList<Recipe> matchedRecipes = new ArrayList<>();
+
+        for (Recipe recipe : recipes) {
+            if (recipe.getIngredients().contains(ingredient)) {
+                matchedRecipes.add(recipe);
+            }
+        }
+
+        return matchedRecipes;
+    }
+
     public ArrayList<Recipe> findRecipesByMaxCookingTime(int maxCookingTime) {
         ArrayList<Recipe> matchedRecipes = new ArrayList<>();
 
