@@ -9,16 +9,30 @@
  * @author brandonwebdev
  */
 public class ProductWarehouseWithHistory extends ProductWarehouse {
+
     private ChangeHistory changeHistory;
 
     public ProductWarehouseWithHistory(String productName, double capacity, double initialBalance) {
         super(productName, capacity);
-        this.addToWarehouse(initialBalance);
         this.changeHistory = new ChangeHistory();
-        this.changeHistory.add(initialBalance);
+        this.addToWarehouse(initialBalance);
     }
-    
+
     public String history() {
         return changeHistory.toString();
+    }
+
+    public void addToWarehouse(double amount) {
+        super.addToWarehouse(amount);
+        // record in history
+        changeHistory.add(getBalance());
+    }
+
+    public double takeFromWarehouse(double amount) {
+        double actualAmountToTake = super.takeFromWarehouse(amount);
+        //record in history
+        changeHistory.add(getBalance());
+        
+        return actualAmountToTake;
     }
 }
