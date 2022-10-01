@@ -33,7 +33,7 @@ public class LiquidContainers {
             // Handle commands
             if (command.equals("add")) {
                 first += amount;
-                
+
                 if (first > MAX_AMOUNT) {
                     first = MAX_AMOUNT;
                 }
@@ -45,10 +45,18 @@ public class LiquidContainers {
                 }
                 first -= amount;
                 second += amount;
-                
+
                 // second can't hold more than max amount
                 if (second > MAX_AMOUNT) {
                     second = MAX_AMOUNT;
+                }
+            } else if (command.equals("remove")) {
+                //remove the amount from second
+                second -= amount;
+
+                //if amount is more than second, remove remaining liquid
+                if (second < 0) {
+                    second = 0;
                 }
             }
         }
