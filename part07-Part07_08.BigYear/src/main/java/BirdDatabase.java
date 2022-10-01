@@ -18,4 +18,14 @@ public class BirdDatabase {
         this.birds = new ArrayList<>();
     }
     
+    public void addBird(BirdEntry bird) {
+        birds.add(bird);
+    }
+
+    public ArrayList<BirdEntry> getBirds() {
+        return birds;
+    }
+    
+    
+    
 }

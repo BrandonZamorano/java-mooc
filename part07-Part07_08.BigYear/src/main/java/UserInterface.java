@@ -46,7 +46,12 @@ public class UserInterface {
     }
 
     private void addBird() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Name in Latin: ");
+        String latinName = scanner.nextLine();
+        
+        database.addBird(new BirdEntry(name, latinName));
     }
 
     private void addObservation() {
