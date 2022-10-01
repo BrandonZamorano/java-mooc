@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -59,7 +60,11 @@ public class UserInterface {
     }
 
     private void printAllBirds() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<BirdEntry> birds = database.getBirds();
+        
+        for (BirdEntry bird : birds) {
+            System.out.println(bird);
+        }
     }
 
     private void printBird() {
