@@ -29,6 +29,7 @@ public class UserInterface {
 
         System.out.println("");
         printCommands();
+        System.out.println("");
 
         // Read file
         readRecipesFromFile(fileName);
@@ -36,10 +37,8 @@ public class UserInterface {
         // Loop and handle commands
         while (true) {
             // Get user input
-            System.out.println("");
             System.out.print("Enter command: ");
             String command = scanner.nextLine();
-            System.out.println("");
 
             // Check for exit condition
             if (command.equals("stop")) {
@@ -48,6 +47,7 @@ public class UserInterface {
 
             // handle command
             handleCommand(command);
+            System.out.println("");
         }
     }
 
@@ -60,12 +60,27 @@ public class UserInterface {
     private void handleCommand(String command) {
         if (command.equals("list")) {
             list();
+        } else if (command.equals("find name")) {
+            findRecipeByName();
         }
     }
 
     private void list() {
         System.out.println("Recipes:");
         for (Recipe recipe : recipeList.getRecipes()) {
+            System.out.println(recipe);
+        }
+    }
+
+    private void findRecipeByName() {
+        System.out.print("Searched word: ");
+        String searchQuery = scanner.nextLine();
+
+        System.out.println("");
+        System.out.println("Recipes:");
+        ArrayList<Recipe> foundRecipes = recipeList.findRecipesByName(searchQuery);
+
+        for (Recipe recipe : foundRecipes) {
             System.out.println(recipe);
         }
     }

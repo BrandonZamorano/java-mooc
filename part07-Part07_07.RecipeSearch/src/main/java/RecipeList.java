@@ -25,5 +25,17 @@ public class RecipeList {
     public ArrayList<Recipe> getRecipes() {
         return recipes;
     }
+    
+    public ArrayList<Recipe> findRecipesByName(String search) {
+        ArrayList<Recipe> matchedRecipes = new ArrayList<>();
+        
+        for (Recipe recipe : recipes) {
+            if (recipe.getName().contains(search)) {
+                matchedRecipes.add(recipe);
+            }
+        }
+        
+        return matchedRecipes;
+    }
 
 }
