@@ -68,7 +68,10 @@ public class UserInterface {
     }
 
     private void printBird() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print("Bird? ");
+        String birdName = scanner.nextLine();
+        BirdEntry foundBird = database.findBirdByName(birdName);
+        System.out.println(foundBird);
     }
 
 }

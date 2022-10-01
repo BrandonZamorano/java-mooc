@@ -6,26 +6,33 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author brandonwebdev
  */
 public class BirdDatabase {
+
     private ArrayList<BirdEntry> birds;
-    
+
     public BirdDatabase() {
         this.birds = new ArrayList<>();
     }
-    
+
     public void addBird(BirdEntry bird) {
         birds.add(bird);
+    }
+
+    public BirdEntry findBirdByName(String name) {
+        for (BirdEntry bird : birds) {
+            if (bird.getName().equals(name)) {
+                return bird;
+            }
+        }
+        return null;
     }
 
     public ArrayList<BirdEntry> getBirds() {
         return birds;
     }
-    
-    
-    
+
 }
