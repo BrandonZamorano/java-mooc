@@ -56,7 +56,10 @@ public class UserInterface {
     }
 
     private void addObservation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Bird? ");
+        String birdName = scanner.nextLine();
+        
+        database.addObservation(birdName);
     }
 
     private void printAllBirds() {

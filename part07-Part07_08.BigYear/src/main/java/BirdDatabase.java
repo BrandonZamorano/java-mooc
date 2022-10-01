@@ -30,6 +30,17 @@ public class BirdDatabase {
         }
         return null;
     }
+    
+    public void addObservation(String birdName) {
+        BirdEntry bird = findBirdByName(birdName);
+        
+        if (bird != null) {
+            bird.addObservation();
+            return;
+        }
+        
+        
+    }
 
     public ArrayList<BirdEntry> getBirds() {
         return birds;
