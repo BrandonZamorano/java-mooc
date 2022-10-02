@@ -10,5 +10,11 @@ public class PositiveNumbers {
         // test your method here
 
     }
+    
+    public static List<Integer> positive(List<Integer> numbers) {
+        return numbers.stream()
+                .filter(n -> n > 0)
+                .collect(Collectors.toList());
+    }
 
 }
