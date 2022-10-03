@@ -37,4 +37,8 @@ public class Hand implements Comparable<Hand> {
         return this.cardsInHand.stream()
                 .mapToInt(c -> c.getValue()).sum() - otherHand.cardsInHand.stream().mapToInt(c -> c.getValue()).sum();
     }
+    
+    public void sortBySuit() {
+        Collections.sort(cardsInHand, new BySuitInValueOrder());
+    }
 }
