@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -25,5 +26,9 @@ public class Hand {
     
     public void print() {
         cardsInHand.forEach(card -> System.out.println(card));
+    }
+    
+    public void sort() {
+        Collections.sort(cardsInHand);
     }
 }
