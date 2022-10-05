@@ -1,0 +1,6 @@
+FlightControl/Main.class
+FlightControl/UserInterface/TextUI.class
+FlightControl/domain/Flight.class
+FlightControl/domain/Place.class
+FlightControl/domain/Plane.class
+FlightControl/logic/FlightControl.class
